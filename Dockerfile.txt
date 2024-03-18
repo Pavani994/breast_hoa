@@ -1,0 +1,20 @@
+# Use the official TensorFlow Docker image as the base image
+FROM tensorflow/tensorflow:latest
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy the current directory contents into the container at /app
+COPY . /app
+
+# Install any dependencies if needed (modify as per your requirements)
+RUN pip install scikit-learn opencv-python-headless matplotlib
+
+# Expose the port the app runs on
+EXPOSE 80
+
+# Define environment variable (if needed)
+# ENV NAME World
+
+# Command to run your application
+CMD ["python", "hoa.py"]
